@@ -4,11 +4,11 @@ import cors from 'cors';
 import morgan from 'morgan';
 import CookieParser from 'cookie-parser';
 import http from 'http';
-import 'dotenv/config';
-import routes from './routes';
-import socketSever from './socket';
-import adminSocketSever, { sendNotification, onConnect } from './socket/admin';
-import Logger from './helpers/Logger';
+import 'dotenv/config.js';
+import routes from './routes.js';
+import socketSever from './socket.js';
+import adminSocketSever, { sendNotification, onConnect } from './socket/admin.js';
+import Logger from './helpers/Logger.js';
 
 const PORT = process.env.NODE_ENV === 'test' ? 3011 : process.env.PORT || 5000;
 
