@@ -9,9 +9,9 @@
     "test": "NODE_ENV=test mocha --require babel-register --exit",
     "cover": "nyc --reporter=html --reporter=text mocha --require babel-register --recursive --exit",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "clean": "rm -rf ./app/build && mkdir ./app/build",
-    "build": "npm run clean && babel ./src -d app/build --copy-files",
-    "start": "node ./app/build/app.js",
+    "clean": "rm -rf build && mkdir build",
+    "build": "npm run clean && babel ./src -d build --copy-files",
+    "start": "node ./build/app.js",
     "start:dev": "./node_modules/.bin/babel-watch app.js",
     "pm2:restart": "./pm2.sh"
   },
