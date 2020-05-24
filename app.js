@@ -5,9 +5,9 @@ import morgan from 'morgan';
 import CookieParser from 'cookie-parser';
 import http from 'http';
 import 'dotenv/config.js';
-import routes from './routes.js';
-import socketSever from './socket.js';
-import adminSocketSever, { sendNotification, onConnect } from './socket/admin.js';
+import routes from './routes';
+import socketSever from './socket';
+import adminSocketSever from './socket/admin.js';
 import Logger from './helpers/Logger.js';
 
 const PORT = process.env.NODE_ENV === 'test' ? 3011 : process.env.PORT || 5000;
