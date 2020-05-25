@@ -12,11 +12,10 @@
     "clean": "rm -rf build && mkdir build",
     "build": "npm run clean && babel ./src -d build --copy-files",
     "start": "node ./build/app.js",
-    "start:dev": "./node_modules/.bin/babel-watch app.js",
+    "start:dev": "./node_modules/.bin/babel-watch ../src/app.js",
     "pm2:restart": "./pm2.sh"
   },
   "dependencies": {
-    "@babel/runtime": "^7.9.6",
     "babel-runtime": "^6.26.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
