@@ -13,7 +13,7 @@ class TokenUtil {
    * @param {String} time - Expiry time
    */
   static sign(payload, time = '10d') {
-    return jsonwebtoken.sign(payload, process.env.JWT_SECRET, { expiresIn: time });
+    return jsonwebtoken.sign(payload, 'MIIBOQIBAAJAY9s2JosSG/78EDSibYbO4w8FGWcq9PnuPr0M8GG3VASGtZFUWEqt+rb4MfXf5T46P5/kqBWxPwTND7J5T9UJPb1GFvM1ARA=@', { expiresIn: time });
   }
 
   /**
@@ -22,7 +22,7 @@ class TokenUtil {
    */
   static verify(token) {
     try {
-      return jsonwebtoken.verify(token, process.env.JWT_SECRET);
+      return jsonwebtoken.verify(token, 'MIIBOQIBAAJAY9s2JosSG/78EDSibYbO4w8FGWcq9PnuPr0M8GG3VASGtZFUWEqt+rb4MfXf5T46P5/kqBWxPwTND7J5T9UJPb1GFvM1ARA=@');
     } catch (error) {
       return null;
     }
