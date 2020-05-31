@@ -11,8 +11,8 @@ import BookingController from '../controllers/BookingController';
 const bookingRouter = express.Router();
 
 bookingRouter.route('/').get(BookingController.getAll);
-bookingRouter.route('/view/:id').get(BookingController.viewOne);
 bookingRouter.route('/view/user').get(BookingController.viewOneUser);
+bookingRouter.route('/view/:id').get(BookingController.viewOne);
 bookingRouter.route('/create').post(trimInputs, validateInputs(bookingRules), BookingController.bookAservice);
 bookingRouter.route('/update').patch(trimInputs, validateInputs(bookingRules), BookingController.updateBooking);
 bookingRouter.route('/delete/:id').delete(BookingController.updateBooking);
