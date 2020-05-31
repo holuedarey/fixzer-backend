@@ -45,6 +45,33 @@ class BookingController {
   * This handles getting transaction history.
   * @param {express.Request} req Express request param
   * @param {express.Response} res Express response param
+  */async viewOneUser(req, res) {
+    console.log('user', req.user._id)
+    if (!validateMongoID(id)) {
+      return Response.send(res, codes.badRequest, {
+        error: 'Record not found.',
+      });
+    }
+
+    try {
+      const booking = await Booking.findById({user_id : req.user._id});
+
+      if (!booking) {
+        return Response.send(res, codes.notFound, {
+          error: 'Booking not found.',
+        });
+      }
+
+      return Response.send(res, codes.success, {
+        data: booking,
+      });
+    } catch (error) { return Response.handleError(res, error); }
+  }
+
+  /**
+  * This handles getting transaction history.
+  * @param {express.Request} req Express request param
+  * @param {express.Response} res Express response param
   */
   async getAll(req, res) {
 
