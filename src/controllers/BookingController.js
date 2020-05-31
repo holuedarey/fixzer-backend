@@ -93,7 +93,7 @@ class BookingController {
       const bookServices = await newServices.bookAservices(data);
       //start socket to send notification
       // setTimeout(() => {
-      sendNotification('customer', bookServices._id)
+      sendNotification('customer', bookServices)
       // }, 1000)
 
       Response.send(res, codes.success, {
