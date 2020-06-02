@@ -16,7 +16,8 @@ const schema = new Schema({
   category:String,
   user_id:String,
   firstname:String,
-  lastname:String
+  lastname:String,
+  view: {type : Boolean, default: false }
 
 }, {
   timestamps: true,

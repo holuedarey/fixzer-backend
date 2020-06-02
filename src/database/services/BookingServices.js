@@ -33,6 +33,21 @@ class BookingService {
     return bookings;
   }
 
+  /**
+     * This gets all terminals for given filter
+     * @param {Number} page
+     * @param {Number} limit
+     * @returns {Array} bookings
+     */
+    async getAllForNotify(f) {
+      let filter = { view : {$ne : true } };
+      let bookings = await Booking.aggregate([
+        { $match: filter }
+      ]);
+    
+      return bookings;
+    }
+
 }
 
 export default BookingService;

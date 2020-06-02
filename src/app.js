@@ -9,6 +9,7 @@ import routes from './routes';
 import socketSever from './socket';
 import adminSocketSever from './socket/admin.js';
 import Logger from './helpers/Logger.js';
+import CronService from './database/services/CronService';
 
 const PORT = process.env.NODE_ENV === 'test' ? 3011 : process.env.PORT || 5000;
 
@@ -29,6 +30,7 @@ app.use(express.static('public'));
 app.use(express.static('files'))
 routes(app);
 
+CronService.startCron();
 
 socketSever(httpServer);
 adminSocketSever(httpServer)
