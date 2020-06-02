@@ -5,6 +5,9 @@
   "author": "Ogunwole samuel",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": "10.16.0"
+  },
   "scripts": {
     "test": "NODE_ENV=test mocha --require babel-register --exit",
     "cover": "nyc --reporter=html --reporter=text mocha --require babel-register --recursive --exit",
