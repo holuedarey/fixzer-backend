@@ -30,7 +30,7 @@ app.use(express.static('public'));
 app.use(express.static('files'))
 routes(app);
 
-CronService.startCron();
+// CronService.startCron();
 
 socketSever(httpServer);
 adminSocketSever(httpServer)
