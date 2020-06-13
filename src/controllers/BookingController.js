@@ -9,6 +9,7 @@ import BookingServices from '../database/services/BookingServices';
 import { sendNotification } from '../socket/admin';
 import Services from '../database/mongodb/models/Service';
 import Booking from '../database/mongodb/models/Service';
+import Assign from '../database/mongodb/models/Assign';
 
 class BookingController {
 
@@ -42,6 +43,45 @@ class BookingController {
       });
     } catch (error) { return Response.handleError(res, error); }
   }
+
+  
+  /**
+  * This handles getting transaction history.
+  * @param {express.Request} req Express request param
+  * @param {express.Response} res Express response param
+  */
+ async assignBookingForPro(req, res) {
+
+  const { id } = req.params;
+
+  if (!validateMongoID(id)) {
+    return Response.send(res, codes.badRequest, {
+      error: 'Record not found.',
+    });
+  }
+
+  try {
+    const booking = await Booking.findById({ _id: id });
+    
+    if (!booking) {
+      return Response.send(res, codes.notFound, {
+        error: 'Booking not found.',
+      });
+    }
+      const {
+        freelance_id, service_time, title, description, service, category,
+      } = req.body;
+      const payload = {};
+      payload.booking;
+      payload.pro_user_id = req.user.id;
+      const assign =  await new Assign(payload);
+
+    return Response.send(res, codes.success, {
+      data: assign,
+    });
+  } catch (error) { return Response.handleError(res, error); }
+}
+
 
   /**
   * This handles getting booking history for a specific user.

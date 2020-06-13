@@ -27,7 +27,7 @@ class CronService {
       console.log('data : ', data)
       /** Check if there is active sockets */
     // if (data.length > 4) return;
-      await sendNotification(socketRoom,  data);
+       sendNotification(socketRoom,  data);
     } catch (err) { Logger.log(err); }
 
   }
