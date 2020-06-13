@@ -7,7 +7,6 @@ import { curDate, validateMongoID } from '../helpers/utils';
 import Logger from '../helpers/Logger';
 import BookingServices from '../database/services/BookingServices';
 import { sendNotification } from '../socket/admin';
-import Services from '../database/mongodb/models/Service';
 import Booking from '../database/mongodb/models/Service';
 import Assign from '../database/mongodb/models/Assign';
 
